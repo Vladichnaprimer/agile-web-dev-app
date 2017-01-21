@@ -1,0 +1,46 @@
+<div class="col-md-9">
+    <div id="books">
+      <%if notice%>
+        <p id="notice"> <%= notice %></p>
+      <%end%>
+
+          <h1>Your Pragmatic Catalog</h1><br>
+                <% @products.each do |product|%>
+
+                            <div class="row">
+                              <div class="entry">
+                                <div class="col-md-4">
+                                      <%= image_tag(product.image_url, :width => 200, :height => 250)%>
+                                </div>
+                                <div class="col-md-8">
+                                      <h3><%= link_to product.title, product%></h3>
+                                      <%= sanitize(product.description)%>
+                                      <div class="price-line">
+                                            <span class="price"><%= number_to_currency(product.price)%></span><br/><br/><br/>
+                                            <%if session[:user_id]%>
+                                                <%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn btn-primary sharp', remote: true%>
+                                            <%end%>
+                                      </div>
+                                </div>
+                                <hr>
+                              </div>
+
+
+                            </div>
+
+                    <br/>
+                <%end%>
+
+    </div>
+
+</div>
+
+<%if session[:user_id]%>
+  <div class="col-md-3">
+    <%if @cart%>
+      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do%>
+        <%= render @cart%>
+      <%end%>
+    <%end%>
+  </div>
+<%end%>

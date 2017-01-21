@@ -1,0 +1,29 @@
+
+    <h1>Your Pragmatic Cart</h1><br>
+    <table class="table">
+
+            <%= render(cart.line_items)%>
+
+
+            <tr >
+                <td colspan="2"><strong><h5>Total</h5></strong></td>
+                <td class="total-cell"> <%= number_to_currency(cart.total_price)%></td>
+            </tr>
+
+
+    </table>
+
+    <div class="action-buttons">
+        <div class="icons">
+
+            <%= button_to  new_order_path, method: :get, class: "order-button"  do %>
+            <i class="fa fa-shopping-cart fa-2x"  aria-hidden="true"></i>
+            <%end%>
+
+            <%= button_to  cart, method: :delete, class: "cross-button",
+            data: {confirm: "Are you sure?"} do%>
+            <i class="fa fa-times fa-2x" aria-hidden="true" ></i>
+            <%end%>
+        </div>
+
+    </div>

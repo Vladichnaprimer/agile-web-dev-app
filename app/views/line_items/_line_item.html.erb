@@ -1,0 +1,16 @@
+<% if line_item == @current_item%>
+<tr id="current_item">
+    <%else%>
+</tr>
+<%end%>
+<tr>
+    <td><%= line_item.quantity %> &times;</td>
+    <td>    <%= truncate(strip_tags(line_item.product.title), length: 25) %></td>
+
+    <td > <%= number_to_currency(line_item.total_price)%></td>
+    <td><%= button_to line_item, method: :delete, style: "background: #d6d6d6",
+        data: {confirm: "Are you sure?"} do %>
+            <i class="fa fa-times fa-lg cross" ></i>
+        <%end%>
+    </td>
+</tr>
