@@ -1,40 +1,39 @@
-<%= form_for(order) do |f| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="order-new">
+    <%= form_for(order) do |f| %>
+      <% if order.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= raw t('errors.template.header', count: @order.errors.count,
+            model: t('activerecord.models.order'))%>.</h2>
+          <p><%= t('errors.template.body')%></p>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% order.errors.full_messages.each do |msg| %>
+            <li><%= raw msg%></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group">
-      <%= f.label :name%>
-      <%= f.text_field :name, class: "form-control form-control-lg"%>
-  </div>
-  <div class="form-group">
-      <%= f.label :address%>
-      <%= f.text_field :address, class: "form-control form-control-lg"%>
-  </div>
-  <div class="form-group">
-      <%= f.label :email%>
-      <%= f.text_field :email, class: "form-control form-control-lg"%>
-  </div>
-  <div class="form-group">
-      <%= f.label :pay_type%><br>
-      <%= f.select :pay_type, Order::PAYMENT_TYPES, promt: 'Select payment mathod'%>
+      <div class="form-group">
+          <%= f.label :name, t('.name')%>
+          <%= f.text_field :name, class: "form-control form-control-lg"%>
+      </div>
+      <div class="form-group">
+          <%= f.label :address, t('.address_html')%>
+          <%= f.text_field :address, class: "form-control form-control-lg"%>
+      </div>
+      <div class="form-group">
+          <%= f.label :email, t('.email')%>
+          <%= f.text_field :email, class: "form-control form-control-lg"%>
+      </div>
+      <div class="form-group">
+          <%= f.label :pay_type, t('.pay_type')%><br>
+          <%= f.select :pay_type, Order::PAYMENT_TYPES, promt: t('.pay_prompt_html')%>
 
-  </div>
-  <br>
-  <div class="col-xs-3">
+      </div>
+      <br>
+          <%= f.submit t('.submit'), class: 'btn btn-primary sharp', style: "width: 515px;" %>
 
-  </div>
-  <div class="col-xs-2">
-      <%= f.submit 'Place Order', class: 'btn btn-primary sharp' %>
-  </div>
+    <% end %>
 
-
-<% end %>
+</div>

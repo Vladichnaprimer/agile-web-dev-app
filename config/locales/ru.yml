@@ -1,0 +1,21 @@
+ru:
+    activerecord:
+        errors:
+            messages:
+                inclusion: "Не состоит в списке"
+                blank: "значение не должно быть пустым"
+        models:
+            order: "заказ"
+        attributes:
+            order:
+                address: "Адрес"
+                name: "Имя"
+                email: "Почта"
+                pay_type: "Способ оплаты"
+
+    errors:
+        template:
+            body: "Проблемы могут быть в следующих полях:"
+            header:
+                one: "1 ошибка помешала %{model}  сохраниться"
+                other: "%{count} ошибок помешали %{model} сохраниться"

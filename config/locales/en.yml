@@ -20,4 +20,72 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  thanks: "Thank you for your order"
+  layouts:
+    application:
+        home: "Home"
+        login: "Login"
+        orders: "Orders"
+        users: "Users"
+        products: "Products"
+        logout: "Logout"
+  store:
+    index:
+      title_html: "Your Pragmatic Catalog"
+      add_html: "Add to Cart"
+  carts:
+    cart:
+      title: "Your cart"
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+  orders:
+    new:
+      order: "New order"
+    form:
+      name: "Name"
+      address_html: "Address"
+      email:  "Email"
+      pay_type: "Pay with"
+      pay_prompt_html: "Select a payment method"
+      submit: "Place Order"
+ru:
+  thanks: "Спасибо за Ваш заказ"
+  layouts:
+    application:
+      home: "Главная"
+      login: "Войти"
+      orders: "Заказы"
+      users: "Пользователи"
+      products: "Товары"
+      logout: "Выйти"
+  store:
+    index:
+      title_html: "Ваш практичный каталог"
+      add_html: "Добавить в корзину"
+  carts:
+    cart:
+      title: "Ваша корзина"
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format: "%n&nbsp;%u"
+  orders:
+    new:
+      order: "Новый заказ"
+    form:
+      name: "Имя"
+      address_html: "Адрес"
+      email:  "Email"
+      pay_type: "Оплатить через"
+      pay_prompt_html: "Выберете способ оплаты"
+      submit: "Оформить заказ"

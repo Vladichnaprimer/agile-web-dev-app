@@ -4,7 +4,7 @@
         <p id="notice"> <%= notice %></p>
       <%end%>
 
-          <h1>Your Pragmatic Catalog</h1><br>
+          <h1><%= t('.title_html')%></h1><br>
                 <% @products.each do |product|%>
 
                             <div class="row">
@@ -18,7 +18,7 @@
                                       <div class="price-line">
                                             <span class="price"><%= number_to_currency(product.price)%></span><br/><br/><br/>
                                             <%if session[:user_id]%>
-                                                <%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn btn-primary sharp', remote: true%>
+                                                <%= button_to t('.add_html'), line_items_path(product_id: product), class: 'btn btn-primary sharp', remote: true%>
                                             <%end%>
                                       </div>
                                 </div>

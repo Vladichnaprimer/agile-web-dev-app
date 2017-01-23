@@ -1,10 +1,20 @@
-<div class="col-md-4">
+<div class="col-md-3">
 
 </div>
 <div class="col-md-6">
 
 
-    <h1 style="text-align:center">New Order</h1> <br>
+    <h1 style="text-align:center"><%= t('.order')%></h1> <br>
 
     <%= render 'form', order: @order %>
+</div>
+<div class="col-md-3" style="margin-top: 60px;">
+    <%if session[:user_id]%>
+
+        <%if @cart%>
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do%>
+            <%= render @cart%>
+          <%end%>
+        <%end%>
+    <%end%>
 </div>
