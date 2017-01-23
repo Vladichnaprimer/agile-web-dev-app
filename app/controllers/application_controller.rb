@@ -23,5 +23,7 @@ class ApplicationController < ActionController::Base
         unless User.find_by(id: session[:user_id])
         redirect_to login_url, notice: "Login please"
     end
+
+    
   end
 end
