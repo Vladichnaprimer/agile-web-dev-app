@@ -1,4 +1,4 @@
-<%if session[:user_id]%>
+
     <div class="col-md-3">
           <%if @cart%>
               <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do%>
@@ -6,7 +6,7 @@
               <%end%>
           <%end%>
     </div>
-<%end%>
+
 
 <div class="col-md-9">
     <div id="books">
@@ -27,9 +27,8 @@
                                       <%= sanitize(product.description)%>
                                       <div class="price-line">
                                             <span class="price"><%= number_to_currency(product.price)%></span><br/><br/><br/>
-                                            <%if session[:user_id]%>
                                                 <%= button_to t('.add_html'), line_items_path(product_id: product), class: 'btn btn-primary sharp', remote: true%>
-                                            <%end%>
+
                                       </div>
                                 </div>
                                 <hr>

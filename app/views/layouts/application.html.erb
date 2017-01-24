@@ -36,12 +36,12 @@
                                 <li><%= link_to t('.login'), login_path%></li>
                               <%end%>
 
-                              <%if session[:user_id]%>
+
                                   <li><%= link_to t('.orders'), orders_path%></li>
                                   <li><%= link_to t('.users'), users_path%></li>
                                   <li><%= link_to t('.products'), products_path%></li>
                                   <li><%= link_to t('.logout'), logout_path, method: :delete%></li>
-                              <%end%>
+
                                   <li><%= link_to 'EN', store_url(locale: :en), id: "en"%></li>
                                   <li><%= link_to 'RU', store_url(locale: :ru), id: "ru"%></li>
                         </ul>
@@ -63,8 +63,6 @@
         <div class="row">
 
                 <%= yield %>
-
-
 
 
           </div>
