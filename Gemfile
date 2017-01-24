@@ -4,9 +4,10 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+ruby '2.2.2'
 
 gem 'rails', '~> 5.0.1'
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -33,6 +34,7 @@ end
 gem 'rvm-capistrano', '~> 1.5', '>= 1.5.6', group: :development
 
 group :production do
-  gem 'mysql2', '0.3.20'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
