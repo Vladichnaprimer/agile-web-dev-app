@@ -1,5 +1,13 @@
-<div class="col-md-3">
 
+<div class="col-md-3" style="margin-top: 60px;">
+      <%if session[:user_id]%>
+
+          <%if @cart%>
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do%>
+                  <%= render @cart%>
+              <%end%>
+          <%end%>
+      <%end%>
 </div>
 <div class="col-md-6">
 
@@ -8,13 +16,4 @@
 
     <%= render 'form', order: @order %>
 </div>
-<div class="col-md-3" style="margin-top: 60px;">
-    <%if session[:user_id]%>
 
-        <%if @cart%>
-          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do%>
-            <%= render @cart%>
-          <%end%>
-        <%end%>
-    <%end%>
-</div>
