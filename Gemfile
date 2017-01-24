@@ -30,6 +30,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'rvm-capistrano', '~> 1.5', '>= 1.5.6', group: :development
+
 group :production do
   gem 'mysql2', '0.3.20'
 end
